@@ -1,137 +1,119 @@
-Accident Detection Using YOLOv8
+# 🚗 **Accident Detection Using YOLOv8**
 
-This project is an AI-powered accident detection system built using YOLOv8.
-It analyzes images and video frames to detect road accidents in real time.
-The project includes training scripts, dataset, model weights, and an inference pipeline.
+An AI-powered **real-time accident detection system** built using **YOLOv8**.  
+This project detects road accidents in images and videos using a custom-trained YOLO model.
 
-🚀 Features
+--------------------------------------------
 
-Custom-trained YOLOv8 accident detection model
+## ✨ **Features**
+- 🧠 **Custom-trained YOLOv8 accident detection model**
+- 🗂 **YOLO-formatted dataset** (images + labels)
+- 📒 **Training notebook included**
+- 🎥 **Real-time & video accident detection**
+- 🔳 **Bounding boxes + class predictions**
+- 🖼 **Image detection using img.py**
+- ▶️ **Video detection using main.py**
+- 🎞 Includes multiple sample test videos
 
-Full YOLO-formatted dataset (images + labels)
+--------------------------------------------
 
-Complete training notebook
+## 📁 **Project Structure**
 
-Real-time / video-based accident detection
+project/  
+│── README.md  
+│── yolo_model_training.ipynb  
+│  
+├── accident-detection/  
+│   │── best.pt  
+│   │── classes.txt  
+│   │── main.py  
+│   │── img.py  
+│   │── cr.mp4  
+│   │── test1.mp4 – test4.mp4  
+│   │── yolo_model_training.ipynb  
+│   │  
+│   ├── data/  
+│   │   ├── images/  
+│   │   │   ├── training/  
+│   │   │   └── validation/  
+│   │   ├── labels/  
+│   │   │   ├── training/  
+│   │   │   └── validation/  
+│   │   └── classes.txt  
+│   │  
+│   ├── images/  
+│   └── .idea / .vscode  
+│  
+└── project/   # Unused (empty)
 
-Bounding boxes & class predictions
+--------------------------------------------
 
-Easy inference using main.py (video) and img.py (image)
+## 🧠 **Model Training (YOLOv8)**
 
-Multiple test videos included
+Training is done through:
 
-📂 Project Structure
-project/
-│   README.md
-│   yolo_model_training.ipynb              ← Main training notebook
-│
-├── accident-detection/                    ← Main detector directory
-│   │   best.pt                             ← Trained YOLOv8 weights
-│   │   classes.txt                         ← Class names
-│   │   main.py                             ← Video inference script
-│   │   img.py                              ← Image inference script
-│   │   cr.mp4, test1.mp4 – test4.mp4       ← Sample videos for testing
-│   │   yolo_model_training.ipynb           ← Additional training notebook
-│   │
-│   ├── data/                               ← YOLO dataset
-│   │   ├── images/
-│   │   │   ├── training/
-│   │   │   └── validation/
-│   │   ├── labels/
-│   │   │   ├── training/
-│   │   │   └── validation/
-│   │   └── classes.txt
-│   │
-│   ├── images/                             ← Extra labeled images
-│   └── .idea / .vscode                     ← IDE/editor configs
-│
-└── project/                                ← (Unused / empty)
+`yolo_model_training.ipynb`
 
-🧠 Model Training (YOLOv8)
+This notebook includes:
+- 🗂 **Dataset preparation**
+- ⚙️ **YOLOv8 configuration**
+- 📊 **Training & validation**
+- 💾 **Exporting best.pt**
+- 🔧 **Fine-tuning workflow**
 
-Training is done using the notebook:
+--------------------------------------------
 
-yolo_model_training.ipynb
+## ▶️ **Running the Accident Detector**
 
-
-It covers:
-
-Dataset preparation
-
-YOLOv8 configuration
-
-Training & validation
-
-Exporting model weights as best.pt
-
-You can re-train or fine-tune the model by modifying this notebook.
-
-▶️ Running the Accident Detector
-1️⃣ Install Dependencies
+### **1️⃣ Install Dependencies**
 pip install ultralytics opencv-python numpy
 
-2️⃣ Run Video-based Detection
-python main.py
+### **2️⃣ Run Video-Based Detection**
+python main.py  
+(uses best.pt + test1.mp4 by default)
 
+### **3️⃣ Run Image-Based Detection**
+python img.py  
+(update the image path inside the script if needed)
 
-This loads:
+--------------------------------------------
 
-best.pt
+## 🗂 **Dataset Format**
 
-A test video (test1.mp4 by default)
+Each image has a YOLO label file:
 
-Modify the video path inside main.py if needed.
-
-3️⃣ Run Image-based Detection
-python img.py
-
-
-Place your image in the folder or update the path in the script.
-
-🗂 Dataset Format
-
-The dataset uses YOLO label format, where each image has:
-
-image.jpg
+image.jpg  
 image.txt
 
-
-Inside each .txt file:
-
+Label format:
 class x_center y_center width height
 
-
 Dataset paths:
+- accident-detection/data/images/
+- accident-detection/data/labels/
 
-accident-detection/data/images/
-accident-detection/data/labels/
+--------------------------------------------
 
-📦 Model Weights
+## 📦 **Model Weights**
+- **best.pt** — custom-trained YOLOv8 model  
+- Replace with new weights after retraining
 
-best.pt — custom-trained YOLOv8 model
+--------------------------------------------
 
-Replace with new weights if retraining
+## 🛠 **Tech Stack**
+- 🐍 Python  
+- 🧠 YOLOv8 (Ultralytics)  
+- 🎥 OpenCV  
+- 🔢 NumPy  
+- 📘 Jupyter Notebook  
 
-🔧 Tech Stack
+--------------------------------------------
 
-Python
+## 🚀 **Future Improvements**
+- 🌐 Deploy via Flask / FastAPI  
+- 📡 Real-time CCTV / RTSP support  
+- 📈 Improve accuracy with larger dataset  
+- 🆘 Accident severity classification  
+- 🤖 Deploy on Jetson Nano / Raspberry Pi  
 
-YOLOv8 (Ultralytics)
-
-OpenCV
-
-NumPy
-
-Jupyter Notebook
-
-🛠 Future Improvements
-
-Deploy using Flask / FastAPI
-
-Support real-time CCTV / RTSP streaming
-
-Improve accuracy with expanded dataset
-
-Add accident severity classification
-
-Deploy on edge devices (Jetson, Raspberry Pi)
+--------------------------------------------
